@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style = center>  
+#myDIV {
+  width: 800px;
+  height: 500px;
+  position: relative;
+  background: blue;
+}
+#animate{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  background-color: red;
+ 
+}
+
+</style>
+
+<script>
+  function myFunction() 
+  {
+    
+    //audio.play();
+    
+    var elem = document.getElementById("animate");
+    
+		var position1 = Math.floor((Math.random() * 350) + 1);
+		var position2 = Math.floor((Math.random() * 350) + 1);
+
+		elem.style.top = position1 + "px"; 
+        elem.style.left = position2 + "px";
+  }
+ </script>
+</head>
+<body>
+<div id="myDIV">
+<button id="animate" onclick="myFunction()"></button>
+</div>
+</body>
+</html>

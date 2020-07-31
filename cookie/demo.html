@@ -1,0 +1,73 @@
+<html>
+    <head>
+        <script type = "text/javascript">
+            function loadform()
+            {
+                var name = document.createElement("input");
+                name.setAttribute("type","text");
+                name.setAttribute("placeholder","Enter NAME");
+                name.addEventListener("blur",checkname);
+                function checkname()
+                {
+                    var n = /^[a-zA-Z]*$/;
+                    if(name.value == ""){
+                        alert("ENTER YOUR NAME")
+                    }else if(!name.value.match(n)){
+                            alert("ENTER VALID NAME");
+                            name.value="";
+                        }
+                }
+                var email = document.createElement("input");
+                email.setAttribute("type","email");
+                email.setAttribute("placeholder","Enter EMAIL");
+                email.addEventListener("blur",checkemail);
+                function checkemail()
+                {
+                    var n = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                    if(email.value == "")
+                    {
+                        alert("ENTER YOUR EMAIL");
+                    }else if(!email.value.match(n)){
+                            alert("ENTER VALID EMAIL");
+                            email.value="";
+                        }
+                }
+                var number = document.createElement("input");
+                number.setAttribute("type","integer");
+                number.setAttribute("placeholder","Enter Number");
+                function checknumber()
+                {
+                    var n = /^[0-9]+$/;
+                    if (number.value.match(n)) 
+                    {
+                        alert("number");
+                    }
+                    else if(!number.value.match(n))
+                        {
+                            alert("ENTER VALID number");
+                            number.value="";
+                        }
+                }
+                var submit = document.createElement("input");
+                submit.setAttribute("type","submit");
+                submit.addEventListener("click",sub);
+                function sub()
+                {
+                    document.cookie = "name =" + name.value;
+                    document.cookie = "email=" + email.value;
+                    document.cookie = "number=" + number.value;
+                    document.write(document.cookie);
+
+                    
+                }
+                document.body.appendChild(name);
+                document.body.appendChild(email);
+                document.body.appendChild(number);
+                document.body.appendChild(submit);
+                var d = document.body.appendChild(name,number);
+                d.insertBefore(email);  
+            }
+        </script>
+</head>
+<body onload="loadform();"></body>
+</html>
